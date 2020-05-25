@@ -3,7 +3,8 @@
     <ion-title>Monitor Guardias de Biblioteca</ion-title>
 		<ion-buttons end>
 			<button ion-button icon-only (click)="cambiaMostrarFooter()">
-        <ion-icon name="sync"></ion-icon>
+        <ion-icon *ngIf="mostrarFooter == false" name="md-add-circle"></ion-icon>
+        <ion-icon *ngIf="mostrarFooter == true" name="md-remove-circle"></ion-icon>
       </button>
 		</ion-buttons>    
    </ion-navbar>

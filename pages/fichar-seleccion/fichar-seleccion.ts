@@ -25,6 +25,7 @@ export class FicharSeleccionPage {
   }
 
   ngOnDestroy(){
+    this.gbibSvc.libera_coleccionProfesores();
     //console.log(" home ondestroy")
   }
 

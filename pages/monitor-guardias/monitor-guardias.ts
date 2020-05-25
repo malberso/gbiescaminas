@@ -27,7 +27,7 @@ export class MonitorGuardiasPage {
 
   ngOnDestroy(){
     this.gbibSvc.desconectarSuscripcion();
-    console.log(" home ondestroy")
+    //console.log(" monitor-guardia ondestroy")
   }
 
   cambiaMostrarFooter(){

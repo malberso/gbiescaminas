@@ -15,7 +15,7 @@ import { GuardiaNuevaPage } from '../guardia-nueva/guardia-nueva';
 
 
 export class DiaPage {
-
+/*
   private dias: any[] = [
     "20200505", "20200506", "20200507", "20200508", "20200509", "20200510", "20200511", "20200512"
   ];
@@ -52,7 +52,7 @@ export class DiaPage {
       },    
     ]
   }
-
+*/
   private dactual: string;
   private guardias: any[];
   
@@ -68,7 +68,7 @@ export class DiaPage {
 
   ngOnDestroy(){
     this.gbibSrvc.libera_coleccionGuardias();
-    console.log(" dia ondestroy")
+    //console.log(" dia ondestroy")
   }
 
   obtenerGuardias(){
@@ -77,24 +77,19 @@ export class DiaPage {
   }
 
   consultarGuardia (idGuardia: string){
-    //console.log(idGuardia);
     this.navCtrl.push(GuardiaPage, {'idGuardia': idGuardia});
   }
 
   consultaGuardia ( ){
     this.navCtrl.push(GuardiaPage);
   }
-
+/*
   guardarDia(){
     this.gbibSrvc.anyadirDia(this.dia);
   }
-
+*/
   crearGuardia(){
     this.navCtrl.push(GuardiaNuevaPage, {'idDia': this.dactual })
-    /*for (let nguardia of this.dia.guardias){
-      this.gbibSrvc.crearGuardia(this.dia, nguardia);
-      //console.log("hora inicial: " + nguardia.hini);
-    }*/
   }
   eliminarGuardia(idGuardia: string){
     this.gbibSrvc.eliminarGuardia( idGuardia );

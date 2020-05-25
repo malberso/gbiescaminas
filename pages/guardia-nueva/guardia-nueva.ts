@@ -35,7 +35,7 @@ export class GuardiaNuevaPage {
 
   ngOnDestroy(){
     this.gbibSvc.libera_coleccionProfesores();
-    console.log(" guardia-nueva ondestroy")
+    //console.log(" guardia-nueva ondestroy")
   }
 
 

@@ -1,0 +1,29 @@
+page-fichar-guardia{
+  .fecha-guardia {
+    margin: 0 20px 0 0 !important;
+    padding: 12px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    min-width: 100px;
+    max-width: 150px;
+    text-align: center;
+  }
+  .fichado {
+    color: rgb(42, 93, 187);
+  }  
+  .fichado_dir {
+    color: black;
+  }
+  .nofichado {
+    color: red;
+  }  
+
+  .color-primario-bg {
+    background-color: blue;
+  }
+
+  .color-secundario-bg {
+    background-color: rgb(42, 93, 187);
+  }  
+}

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Fichar guardia</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list >
+      <ion-item-sliding *ngFor="let guardia of guardias">      
+        <ion-item>
+          <div item-start class="fecha-guardia color-secundario-bg">
+          {{ guardia.hini.substr(0,2) }}:{{ guardia.hini.substr(2,2) }}-{{ guardia.hfin.substr(0,2) }}:{{ guardia.hfin.substr(2,2) }}
+          </div>
+          <div *ngFor="let profesor of guardia.profesores" >
+            <span *ngIf="profesor.id == profesorId">
+              <div *ngIf="profesor.estado == 0">
+                <div class="nofichado"> {{ profesor.nombre }} (no fichado)</div>
+                
+              </div>
+              <span *ngIf="profesor.estado != 0">
+                <span class="fichado"> {{ profesor.nombre }} (fichado)</span>
+              </span>
+              
+            </span>         
+          </div>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click) = "ficharGuardia(guardia)"><ion-icon name="sync"></ion-icon>
+            Cambiar
+          </button>
+        </ion-item-options>       
+      </ion-item-sliding>
+	  </ion-list>
+
+</ion-content>

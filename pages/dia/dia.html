@@ -1,0 +1,48 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title>Día {{dactual.substr(6, 2)}}-{{dactual.substr(4, 2)}}-{{dactual.substr(0, 4)}}</ion-title>
+		<ion-buttons end>
+			  <button ion-button color="light" round (click)="crearGuardia()" >Crear guardia &nbsp;
+        <ion-icon name="md-add-circle"></ion-icon>
+      </button>
+		</ion-buttons>    
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	<span>
+    <ion-list >
+      <ion-item-sliding *ngFor="let guardia of guardias">
+        <ion-item>
+          <div item-start class="fecha-guardia color-secundario-bg">
+          {{ guardia.hini.substr(0,2) }}:{{ guardia.hini.substr(2,2) }}-{{ guardia.hfin.substr(0,2) }}:{{ guardia.hfin.substr(2,2) }}
+          </div>
+          <span *ngFor="let profesor of guardia.profesores" >
+            <span *ngIf="profesor.estado == 0">
+              <p class="nofichado"> {{ profesor.nombre }}</p>
+            </span>
+            <span *ngIf="profesor.estado == 1">
+              <p  class="fichado"> {{ profesor.nombre }}</p>
+            </span>
+            <span *ngIf="profesor.estado == 2">
+              <p  class="fichado_dir"> {{ profesor.nombre }}</p>
+            </span>          
+          </span>        
+          <button ion-button clear item-end (click)="consultarGuardia(guardia.hini + guardia.hfin)"> Consultar </button>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button color="danger" (click) = "eliminarGuardia(guardia.hini + guardia.hfin)"><ion-icon name="trash"></ion-icon>
+            Eliminar
+          </button>
+        </ion-item-options>      
+      </ion-item-sliding>
+	</ion-list>
+	</span>
+	<p></p>
+
+	<span>
+
+  </span>
+</ion-content>
+

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Datos de la guardia</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-list>
+  <ion-item>
+    <ion-label>Selecciona la fecha de la guardia</ion-label>
+    <ion-datetime displayFormat="D/MMMM/YYYY" [(ngModel)]="fecha"></ion-datetime>
+  </ion-item>  
+  <ion-item>
+    <ion-label>Selecciona profesor..</ion-label>
+    <ion-select #C  [(ngModel)]="profesorId" cancelText="Cancelar" okText="Guardar">
+      <ion-option *ngFor="let profesor of profesoresAp" [value]="profesor.id">{{ profesor.nombre }}</ion-option>      
+
+    </ion-select>
+  </ion-item>
+  <ion-item>
+        <button ion-button color="primary" round (click)="ficharGuardias()">Buscar</button>
+  </ion-item>
+
+</ion-list>
+  <span>
+
+  </span>
+</ion-content>

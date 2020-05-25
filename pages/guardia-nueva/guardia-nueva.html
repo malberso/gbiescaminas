@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>PAGINA NUEVA GUARDIA</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-item-group>
+  <ion-item-divider color="light"><h2>Horario de la guardia</h2></ion-item-divider>
+  <ion-item>
+    <ion-label>Hora inicio</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="hini"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Hora fin</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="hfin"></ion-datetime>
+  </ion-item>
+  <ion-item-divider color="light"><h2>Profesores</h2></ion-item-divider>
+</ion-item-group>
+
+<ion-list>
+  <ion-item *ngFor="let profesor of guardia.profesores">
+    {{ profesor.nombre }}&nbsp; ({{profesor.id}}@ieselcaminas.org)
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Selecciona profesores..</ion-label>
+    <ion-select #C (ionChange)="guardarProfesores(C.value)" multiple="true" cancelText="Cancelar" okText="Guardar">
+      <ion-option *ngFor="let profesor of profesoresAp" [value]="profesor">{{ profesor.nombre }}</ion-option>      
+
+    </ion-select>
+  </ion-item>
+
+</ion-list>
+
+  <span>
+    <button ion-button color="primary" round (click)="crearGuardia()">Guardar</button>
+    <button ion-button color="danger" round (click)="cancelarDatos()">Cancelar</button>
+  </span>
+  <p></p>
+</ion-content>

@@ -12,14 +12,15 @@
           <div item-start class="profesor-guardia color-secundario-bg">
             {{ profesor.nombre }}
           </div>
-          <div *ngIf="profesor.estado == 0">
-            <div class="nofichado">  No fichado</div>
-            
-          </div>
-          <span *ngIf="profesor.estado != 0">
-            <span class="fichado_dir">  Fichado</span>
-   
+          <span *ngIf="profesor.estado == 0">
+            <span class="nofichado">  No fichado</span>            
+          </span>
+          <span *ngIf="profesor.estado == 1">
+            <span class="fichado">  Fichado por el profesor</span>
           </span>        
+          <span *ngIf="profesor.estado == 2">
+            <span class="fichado_dir">  Fichado por dirección</span>
+          </span>          
           <button ion-button clear item-end (click)="ficharGuardia(profesor.nombre)"><ion-icon name="sync"></ion-icon></button>                             
         </ion-item>
         

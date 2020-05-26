@@ -15,44 +15,7 @@ import { GuardiaNuevaPage } from '../guardia-nueva/guardia-nueva';
 
 
 export class DiaPage {
-/*
-  private dias: any[] = [
-    "20200505", "20200506", "20200507", "20200508", "20200509", "20200510", "20200511", "20200512"
-  ];
-  private dia: any = {
-    "id": "20200505",
-    "guardias": [
-      {
-        "hini": "0800",
-        "hfin": "0855",
-        "profesores": [
-          {
-            "nombre": "miguel.albert",
-            "estado": 0
-          },
-          {
-            "nombre": "julio.leon",
-            "estado": 1
-          }
-        ]
-      },
-      {
-        "hini": "0855",
-        "hfin": "0950",
-        "profesores": [
-          {
-            "nombre": "roman",
-            "estado": 0
-          },
-          {
-            "nombre": "suso",
-            "estado": 0
-          }
-        ]
-      },    
-    ]
-  }
-*/
+
   private dactual: string;
   private guardias: any[];
   
@@ -76,8 +39,8 @@ export class DiaPage {
     this.gbibSrvc.obtenerGuardias ( (guardiasDB => { this.guardias = guardiasDB }));
   }
 
-  consultarGuardia (idGuardia: string){
-    this.navCtrl.push(GuardiaPage, {'idGuardia': idGuardia});
+  consultarGuardia ( guardia: any){
+    this.navCtrl.push(GuardiaPage, {'dia': this.dactual, 'guardia': guardia});
   }
 
   consultaGuardia ( ){

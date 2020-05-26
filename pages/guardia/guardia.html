@@ -1,18 +1,34 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>PAGINA GUARDIA</ion-title>
+    <ion-title>Información de la guardia {{ gactual.hini.substr(0,2) }}:{{ gactual.hini.substr(2,2) }}-{{ gactual.hfin.substr(0,2) }}:{{ gactual.hfin.substr(2,2) }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h1>información de la guardia {{gactual}}</h1>
 
-  <ion-list>
-  
-  </ion-list>
+    <ion-list >
+      <ion-item-sliding *ngFor="let profesor of gactual.profesores">      
+        <ion-item>
+          <div item-start class="profesor-guardia color-secundario-bg">
+            {{ profesor.nombre }}
+          </div>
+          <div *ngIf="profesor.estado == 0">
+            <div class="nofichado">  No fichado</div>
+            
+          </div>
+          <span *ngIf="profesor.estado != 0">
+            <span class="fichado_dir">  Fichado</span>
+   
+          </span>        
+          <button ion-button clear item-end (click)="ficharGuardia(profesor.nombre)"><ion-icon name="sync"></ion-icon></button>                             
+        </ion-item>
+        
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click) = "ficharGuardia(profesor.nombre)"><ion-icon name="sync"></ion-icon>
+            Cambiar
+          </button>
+        </ion-item-options>       
+      </ion-item-sliding>
+	  </ion-list>
 
-  <span>
-    <button ion-button color="primary" round>Elige profesor</button>
-  </span>
-  <p></p>
 </ion-content>

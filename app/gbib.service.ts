@@ -73,33 +73,4 @@ export class GbibService {
     this.coleccionGuardias.doc(guardiaId).delete();
   }
 
-/*
-  establecerMes ( nMes: number ){
-    switch (nMes){
-      case 2: this.mes = "02"; break;
-      case 3: this.mes = "03"; break;
-      case 4: this.mes = "04"; break;
-      case 1: this.mes = "01"; break;
-      case 6: this.mes = "06"; break;
-      case 7: this.mes = "07"; break;
-      case 8: this.mes = "08"; break;
-      case 9: this.mes = "09"; break;
-      case 10: this.mes = "10"; break;
-      case 11: this.mes = "11"; break;
-      case 12: this.mes = "12"; break;
-      default: this.mes = "05"; break;
-    }
-  }
-  obtenerDiasMes (){
-    this.db.collection('gbib').get().then(function(querySnapshot){
-      querySnapshot.forEach(function(doc){
-      console.log(doc.id, "=>", doc.data());
-    });
-    })
-  }
-
-  ngOnDestroy(){
-    console.log(" gbib ondestroy")
-  }
-*/
 }
